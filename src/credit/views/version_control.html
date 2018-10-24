@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/WdatePicker.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/skin_/table.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.grid.css" />
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/version_control.js"></script>
+
+<title>表格</title>
+</head>
+
+<body>
+<div id="container">
+	<div id="hd">
+	  <table  border="1" cellpadding="0" bordercolor="#000000" style="padding:20px;display: block;">
+        <tr>
+          <td>时间与时间戳转换：</td>
+          <td style="margin:5px;"><input type="text" id="timestamp" name="textfield" /></td>
+          <td style="margin:5px;"><span class="search-button">
+            <input  name="button2" type="button"  id="now" value="当前时间转时间戳" />
+            <input  name="button22" type="button"  id="time_to" value="时间转时间戳" />
+          </span><span class="search-button">
+          <input  name="button23" type="button"  id="timestamp_to" value="时间戳转时间" />
+          </span></td>
+          <td style="margin:5px;width:200px;"><span id="time_msg" ></span></td>
+        </tr>
+        <tr>
+          <td rowspan="2">user id：</td>
+          <td colspan="3" style="margin:5px;"><span class="kv-item-content">
+            <select id="env" style="width:150px;" name="select2">
+              <option>test</option>
+              <option>uat</option>
+              <option>staging</option>
+            </select>
+          </span></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="margin:5px;"><span class="kv-item-content">
+            <textarea id="userid" style="margin-top:8px;" name="textarea" cols="100" rows="4"></textarea>
+          </span></td>
+        </tr>
+        
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="3"><span class="search-button">
+            <input  name="button24" type="button"  id="addcontrol" value="加入风控白名单" />
+            <input  name="button242" style="margin-top:8px;" type="button"  id="getuserid" value="查询credit userid" />
+            <input  name="button242" style="margin-top:8px;" type="button"  id="checkuserid2" value="根据shopeeid查询creditid" />
+          </span></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="3"><span id="userid_msg"></span></td>
+        </tr>
+      </table>
+	</div>
+    <table id="get_user_id" cellpadding="2"  >
+
+    </table>
+
+
+    <div id="bd">
+    	<div id="main">
+        	<div class="search-box ue-clear">
+           	  <div class="search-area"></div>
+                <div class="search-button"></div>
+          </div>
+             
+            <div class="table">
+              <div class="grid"></div>
+                
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/global.js"></script>
+<script type="text/javascript" src="/static/js/jquery.select.js"></script>
+<script type="text/javascript" src="/static/js/core.js"></script>
+<script type="text/javascript" src="/static/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/static/js/jquery.grid.js"></script>
+<script type="text/javascript" src="/static/js/WdatePicker.js"></script>
+
+</html>
