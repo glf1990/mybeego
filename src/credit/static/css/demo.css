@@ -1,0 +1,27 @@
+body{
+    margin-top:10px;
+    margin-left:20px;
+
+}
+.maindiv{
+    width:1100px;
+    padding:10px;
+    overflow:hidden; /*关键*/
+    border:1px solid black;
+}
+
+
+.leftdiv{
+    float:left;
+    width:540px;
+    background-color:#26CC5F;
+}
+
+.rightdiv{
+    float:right;
+    width:540px;
+    background-color:#CC66FF;
+
+}
+
+}

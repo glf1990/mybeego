@@ -31,3 +31,10 @@ func (c *MainController) Get() {
 	c.Data["Email"] = "astaxie@gmail.com"
 	c.TplName = "main.html"
 }
+//zhenbin
+type Version_Management_Controller struct {
+	beego.Controller
+}
+func (c *Version_Management_Controller) Get() {
+	c.TplName = "version_management.html"
+}

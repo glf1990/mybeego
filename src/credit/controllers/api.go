@@ -146,49 +146,47 @@ func (this *Api_getDatabase_Controller) Post() {
 type Api_getdataController struct {
 	beego.Controller
 }
-
-func (this *Api_getdataController) Post() {
-	var m1 map[string]interface{}
-	//m1["a"]=this.GetString("username")
-	json.Unmarshal(this.Ctx.Input.RequestBody, &m1)
-
+//zhenbin
+type Api_get_app_info_Controller struct {
+	beego.Controller
+}
+func (this *Api_get_app_info_Controller) Post() {
+	var app_name map[string]interface{}
+	//app_name["app"]=this.GetString("a")
+	json.Unmarshal(this.Ctx.Input.RequestBody, &app_name) //将requestBody的值传给app_name
+	product := app_name["name"]
+	creator := app_name["creator"]
+	//ssh 到服务器上
 	evn_map := conf.Get_evn_msg()
-
-	ea := evn_map[m1["env"].(string)]
-	database := m1["database"]
-
-	sql := m1["sql"]
-	db_mysql.Create_db_by_ssh(ea.Database_ip, ea.Database_port, database.(string), ea.Database_userName,
+	ea := evn_map["test"]
+	database := ea.Credit_QA
+	db_mysql.Create_db_by_ssh(ea.Database_ip, ea.Database_port, database, ea.Database_userName,
 		ea.Database_password, ea.Database_LocalIP, ea.Database_LocalPort, ea.SshServerHost, ea.SshServerPort, ea.SshUserName,
 		ea.SshPrivateKeyFilePath, ea.SshKeyPassphrase)
-	str := strings.ToLower(sql.(string))
-	if strings.Contains(str, "insert") || strings.Contains(str, "update") || strings.Contains(str, "delete") {
-		affect_num, err := db_mysql.Update_getAffectedRowNum(sql.(string))
-		if err != nil {
-			//str :="{\"msg\":\""+err+"\"}"
-			//fmt.Println(err)
-			this.Data["json"] = fmt.Sprintf(`[{"msg":"error,affect num:%d,sql error:%s"}]`, affect_num, err)
-			this.ServeJSON()
-		} else {
+	sql_insert := fmt.Sprintf("INSERT INTO product(product_name,creater) VALUES('%s','%s')",product,creator)
+	db_mysql.Update_getAffectedRowNum(sql_insert)
+	this.Data["json"]=app_name
+	this.ServeJSON()
+}
 
-			this.Data["json"] = fmt.Sprintf(`[{"msg":"Success,affect rows num:%d"}]`, affect_num)
-			this.ServeJSON()
-		}
-	} else {
-		rows, err := db_mysql.Select(sql.(string))
-		if err != nil {
-			//str :="{\"msg\":\""+err+"\"}"
-			//fmt.Println(err)
-			this.Data["json"] = fmt.Sprintf(`[{"sys return msg":"%s"}]`, err)
-			this.ServeJSON()
-		} else {
-			str, _ := db_mysql.Get_json(rows)
-			rows.Close()
-			//m2["json"]=str
-			//fmt.Println(str)
-			this.Data["json"] = str
-			this.ServeJSON()
-		}
-	}
+type Api_get_version_info_Controller struct {
+	beego.Controller
+}
+func (this *Api_get_version_info_Controller) Post() {
+	var m1 map[string]interface{}
+	json.Unmarshal(this.Ctx.Input.RequestBody, &m1) //将requestBody的值传给m1
+	userid := m1["userid"]
+	evn_map := conf.Get_evn_msg()
+	ea := evn_map[m1["env"].(string)]
+	database := ea.Credit_account
+	db_mysql.Create_db_by_ssh(ea.Database_ip, ea.Database_port, database, ea.Database_userName,
+		ea.Database_password, ea.Database_LocalIP, ea.Database_LocalPort, ea.SshServerHost, ea.SshServerPort, ea.SshUserName,
+		ea.SshPrivateKeyFilePath, ea.SshKeyPassphrase)
+	//查询
+	sql := fmt.Sprintf("select platform_user_id,user_id from user_base_info_tab where platform_user_id=%s",userid)
+	a,_ :=db_mysql.Select(sql)
+	b,_ :=db_mysql.Get_json(a)
+	this.Data["json"]=b
+	this.ServeJSON()
 
 }

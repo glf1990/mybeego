@@ -1,89 +1,5 @@
-function TransferString(content)  
-{  
-    var string = content;  
-    try{  
-        string=string.replace(/\r\n/g,"\n")
-        string=string.replace(/\t/g," ");
-        string=string.replace(/\r/g,"\n");  
-    }catch(e) {
-        alert(e.message);  
-    }  
-    return string;  
-} 
+
 $(document).ready(function(){
-	/*$("#addcontrol").click(function(){
-		var env=$("#env").val()
-		var userids=$("#userid").val()
-		userids=TransferString(userids)
-		var strs= new Array(); //定义一数组 
-		strs=userids.split("\n"); //字符分割 
-		var u=""
-		for (i=0;i<strs.length ;i++ ) 
-		{ 
-			if (strs[i] !=""){
-				u=u+strs[i]+","
-			}
-		}
-		$.ajax({
-	        url:"/api/add_risk_control_whitelist",
-	        type:"post",
-	        //contentType: 'application/json;charset=utf-8',
-	        data:'{"env":"'+env+'","userid":"'+u+'"}',
-	        timeout:20000,
-	        dataType:"json",
-	        success:function (da){
-	        	var data=JSON.parse(da)
-	        	$("#userid_msg").html(data.msg)
-	        },
-		    error: function (mm) {
-		        console.dir(mm)
-		        alert("请求失败，提示:" +mm);
-		    }
-		});
-	});*/
-	/*$("#getuserid").click(function(){
-        var env=$("#env").val()
-		var platform_userid=$("#userid").val()
-        userids=TransferString(userids)
-		var strs= new Array(); //定义一数组 
-		strs=userids.split("\n"); //字符分割 
-		var u=""
-		for (i=0;i<strs.length ;i++ ) 
-		{ 
-			u=u+strs[i]+","
-		} 
-		$.ajax({
-	        url:"/api/get_user_id",
-	        type:"post",
-	        //contentType: 'application/json;charset=utf-8',
-	        data:'{"userid":"'+u+'"}',
-	        timeout:20000,
-	        dataType:"json",
-	        success:function (da){
-	        	alert(da.userid)
-	        	return
-	        	var data=JSON.parse(da)
-	        	$("#database").empty();
-	        	for(var i=0;i<data.length;i++){
-	        		//alert(data[i].Database)
-	        		//$("#database").append(data[i].Database); 
-	        		//保证不重复添加
-				     
-				     //添加子元素
-				     $("#database").append("<option>"+data[i].Database+"</option>");
-			   	
-	        	}
-				
-				
-	        	//转换json对象
-	        	//data=JSON.parse(da)
-	        },
-		    error: function (mm) {
-		        console.dir(mm)
-		        alert("请求失败，提示:" +mm);
-		    }
-		});
-	});*/
     $("#checkuserid2").click(function(){
         var env=$("#env").val()
        var platform_userid=$("#userid").val()
@@ -94,20 +10,36 @@ $(document).ready(function(){
             timeout:20000,
             dataType:"json",
             success:function (da){
+                var data2=JSON.parse(da);
+                //使用layui在前端的展示数据表格的方式
+                layui.use('table', function(){
+                    var table = layui.table;
+
+                   //第一个实例
+                    table.render({
+                        elem: '#demo'//html 文件使用的id
+                        ,height: 312
+                        ,page: true //开启分页
+                        ,cols: [[ //表头 ,field 为 传过来的json 文件
+                            {field: 'user_id', title: 'userid', width:80, sort: true, fixed: 'left'}
+                        ]]
+                        ,data:data2
+                    });
+
+
+                });
             	//一种在前端展示结果的方式
-				var data=JSON.parse(da);
+/*				var data=JSON.parse(da);
                 var table=document.getElementById("get_user_id");
+                var table1=form.on
+
                 var newRow = table.insertRow(); //创建新行
-                //var newCell1 = newRow.insertCell(); //创建新单元格
                 var newCell2 = newRow.insertCell();
-               // newCell1.innerHTML = "platform_user_id";//单元格内的内容
                 newCell2.innerHTML = "user_id";
                 var newRow = table.insertRow(); //创建新行
-               // var newCell1 = newRow.insertCell(); //创建新单元格
                 var newCell2 = newRow.insertCell();
-                //newCell1.innerHTML = data[0].platform_user_id;//单元格内的内容
-                newCell2.innerHTML = data[0].user_id;
-               //$("#userid_msg").html(data.msg)
+                newCell2.innerHTML = data[0].user_id;*/
+
             },
             error: function (mm) {
                 console.dir(mm)

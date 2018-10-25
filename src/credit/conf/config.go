@@ -18,6 +18,7 @@ type Evn struct {
 	//dbName string //登录的数据库
 	Credit_risk string //风控数据库
 	Credit_account string//account server 数据库
+	Credit_QA string
 }
 var evn_map = make(map[string]Evn)
 
@@ -36,6 +37,7 @@ func Get_evn_msg() map[string]Evn  {
 		"qaws!@1123",
 		"credit_risk_control_db" ,
 		"credit_account_db",
+	       "credit_QA",
 		  }
 	evn_map["uat"]=Evn{ "203.117.178.65" ,
 		22, //跳板机ssh的端口好
@@ -52,6 +54,7 @@ func Get_evn_msg() map[string]Evn  {
 		"qaws!@1123", //登录数据库的密码
 		"credit_risk_control_id_db" ,//登录的数据库
 		"credit_account_id_db",
+		"credit_QA",
 	}
 	evn_map["staging"]=Evn{ "203.117.178.65",
 		22, //跳板机ssh的端口好
@@ -68,6 +71,7 @@ func Get_evn_msg() map[string]Evn  {
 		"qaws!@1123", //登录数据库的密码
 		"credit_risk_control_id_db" ,//登录的数据库
 		"credit_account_id_db",
+		"credit_QA",
 	}
 	return evn_map
 }

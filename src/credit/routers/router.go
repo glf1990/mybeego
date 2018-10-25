@@ -18,6 +18,8 @@ func init() {
 	//版本控制的url
 	beego.Router("/version/version_control", &controllers.Version_control_Controller{})
 	beego.Router("/version/check_credit_user",&controllers.Vc_check_credit_user_id_Controller{})
+	//zhenbin.huang
+	beego.Router("/version_management", &controllers.Version_Management_Controller{})
 
 
 }
