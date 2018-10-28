@@ -20,6 +20,8 @@ func init() {
 	beego.Router("/version/check_credit_user",&controllers.Vc_check_credit_user_id_Controller{})
 	//zhenbin.huang
 	beego.Router("/version_management", &controllers.Version_Management_Controller{})
+	beego.Router("/api/get_app_info", &controllers.Api_get_app_info_Controller{})
+	beego.Router("/api/get_version_info", &controllers.Api_get_version_info_Controller{})
 
 
 }

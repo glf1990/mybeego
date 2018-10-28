@@ -152,19 +152,19 @@ type Api_get_app_info_Controller struct {
 }
 func (this *Api_get_app_info_Controller) Post() {
 	var app_name map[string]interface{}
-	//app_name["app"]=this.GetString("a")
+	/*app_name["app"]=this.GetString("a")
 	json.Unmarshal(this.Ctx.Input.RequestBody, &app_name) //将requestBody的值传给app_name
-	product := app_name["name"]
-	creator := app_name["creator"]
+	//product := app_name["name"]
+	//creator := app_name["creator"]
 	//ssh 到服务器上
 	evn_map := conf.Get_evn_msg()
 	ea := evn_map["test"]
-	database := ea.Credit_QA
-	db_mysql.Create_db_by_ssh(ea.Database_ip, ea.Database_port, database, ea.Database_userName,
+	//database := ea.Credit_QA
+	/*db_mysql.Create_db_by_ssh(ea.Database_ip, ea.Database_port, database, ea.Database_userName,
 		ea.Database_password, ea.Database_LocalIP, ea.Database_LocalPort, ea.SshServerHost, ea.SshServerPort, ea.SshUserName,
 		ea.SshPrivateKeyFilePath, ea.SshKeyPassphrase)
-	sql_insert := fmt.Sprintf("INSERT INTO product(product_name,creater) VALUES('%s','%s')",product,creator)
-	db_mysql.Update_getAffectedRowNum(sql_insert)
+	//sql_insert := fmt.Sprintf("INSERT INTO product(product_name,creater) VALUES('%s','%s')",product,creator)
+	//db_mysql.Update_getAffectedRowNum(sql_insert)*/
 	this.Data["json"]=app_name
 	this.ServeJSON()
 }

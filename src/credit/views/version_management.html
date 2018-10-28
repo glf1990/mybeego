@@ -3,72 +3,65 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+    <!--link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/demo.css" /-->
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
     <script type="text/javascript" src="/static/js/jquery.js"></script>
     <script type="text/javascript" src="/static/js/version_management.js"></script>
     <title>产品管理</title>
 </head>
 
 <body>
-<div class="maindiv" id="container">
-    <div class="leftdiv">
-        <table  border="1" cellpadding="0" align="left" bordercolor="#000000" style="padding:20px;display: block;">
-            <caption>产品管理</caption>
-            <tr>
-                <td>添加新产品：</td>
-                <td style="margin:5px;padding: 5px;"><input type="text" id="add_app" name="textfield" /></td>
-                <td>创建人：</td>
-                <td style="margin:5px;padding: 5px;"><input type="text" id="creator" name="textfield" /></td>
-                <td style="margin:5px;">
-                    <span class="search-button">
-                    <input align="left" type="button"  id="add_app_button" value="添加" />
-                    </span>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="rightdiv">
-        <table border="1" cellpadding="0" bordercolor="#000000" style="padding:20px;display: block;">
-            <caption>版本管理</caption>
-            <tr>
-                <td>添加新版本：</td>
-                <td style="margin:5px;padding: 5px;"><input type="text" id="add_version" name="textfield" /></td>
-                <td>所属产品：</td>
-                <td style="margin:5px;padding: 5px;"><span class="kv-item-content">
-                <select id="belong_product" style="width:150px;" name="select2">
-                    <option>null</option>
-                    </select>
-                    </span>
-                </td>
-                <td style="margin:5px;">
-                    <span class="search-button">
-                    <input align="left" type="button"  id="add_version_button" value="添加" />
-                    </span>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <style>
-        .aa td{ border:1px solid #0094ff;width:179px;text-align:center;}
-    </style>
 
-    <table id="get_app_and_version_info" align="left" style="padding:40px;margin-top:10px;" cellpadding="2" class="aa" >
-        <tr valign="center">
-            <td>产品名</td>
-            <td>产品ID</td>
-            <td>创建人</td>
-        </tr>
-    </table>
-
-    <table id="get_app_and_version_info" align="right" style="padding:40px;margin-top:10px;" cellpadding="2" class="aa" >
-        <tr valign="center">
-            <td>版本号</td>
-            <td>所属产品</td>
-            <td>创建人</td>
-        </tr>
-    </table>
+<div class="layui-container">
+    <div class="layui-col-xs12" style="height: 20px"></div>
+    <div class="layui-row layui-col-space30">
+        <div class="layui-col-xs6" >
+            <div class="layui-bg-blue" class ="text" style="text-align: center;height: 30px">产品管理</div>
+            <table class ="layui-table" style="">
+                <tr>
+                    <th class ="text" style="text-align: right" bgcolor="#faebd7" >添加新产品：</th>
+                    <td >
+                        <input id="add_app"   style="height: 35px;width: 80px " name="app name" requeried  placeholder="请输入产品名">
+                    </td>
+                    <th class ="text" style="text-align: right" bgcolor="#faebd7">创建人：</th>
+                    <td>
+                        <input id="creator"   style="height: 35px;width: 80px " name="app name" requeried  placeholder="请输入创建者">
+                    </td>
+                    <td>
+                        <button class="layui-btn" id="add_app_button" >
+                            <i class="layui-icon">&#xe608;</i> 添加
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="layui-col-xs6" >
+            <div class="layui-bg-blue" class ="text" style="text-align: center;height: 30px">版本管理</div>
+            <table class ="layui-table">
+                <tr>
+                    <th class ="text" style="text-align: center" bgcolor="#faebd7" >添加版本：</th>
+                    <td>
+                        <input id="add_version"   style="height: 35px;width: 120px " name="version type" requeried  placeholder="请输入版本号">
+                    </td>
+                    <td>
+                        <select id="belong_product" style="width:50px;" name="select2">
+                            <option>null</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="layui-btn" id="add_app_button" >
+                            <i class="layui-icon">&#xe608;</i> 添加
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+
+
+
 </body>
 <script type="text/javascript" src="/static/js/jquery.js"></script>
 <script type="text/javascript" src="/static/js/global.js"></script>
