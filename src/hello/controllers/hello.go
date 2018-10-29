@@ -8,5 +8,6 @@ type Hellotest struct {
 }
 
 func (this *Hellotest) Get() {
-	this.Ctx.WriteString("hello world")
+	//this.Ctx.WriteString("hello world")
+	this.TplName="hello.html"
 }
