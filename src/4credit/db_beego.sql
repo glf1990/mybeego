@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50719
 Source Host           : 127.0.0.1:3306
-Source Database       : db_beego
+Source Database       : mydb_beego
 
 Target Server Type    : MYSQL
 Target Server Version : 50719

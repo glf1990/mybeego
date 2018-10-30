@@ -18,7 +18,7 @@
     <div class="layui-header">
         <div class="layui-main">
             <!-- logo -->
-            <a href="/" style="color: #c2c2c2; font-size: 18px; line-height: 60px;">后台管理系统</a>
+            <a href="/" style="color: #c2c2c2; font-size: 18px; line-height: 60px;">测试管理系统</a>
             <!-- 水平导航 -->
             <ul class="layui-nav" style="position: absolute; top: 0; right: 0; background: none;">
                 <li class="layui-nav-item">

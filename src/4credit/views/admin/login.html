@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>后台登录</title>
+    <title></title>
     <link rel="stylesheet" href="/static/plug/layui/css/layui.css">
     <style>
 
@@ -26,7 +26,7 @@
         <div class="fly-panel fly-panel-user" pad20>
             <div class="layui-tab layui-tab-brief">
                 <ul class="layui-tab-title">
-                    <li class="layui-this">欢迎登录后台系统</li>
+                    <li class="layui-this">欢迎登录测试管理系统</li>
                 </ul>
                 <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding-top: 20px; padding-left: 50px;  ">
 
@@ -64,6 +64,12 @@
                 </div>
             </div>
         </div>
+    </form>
+    <h2>register</h2>
+    <form action="/admin/register" method="post">
+        id:<input name="userid"/>
+        password:<input name="password" type="password">
+        <input type="submit">
     </form>
 </div>
 

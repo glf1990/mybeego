@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"github.com/liwd/blog/controllers"
+	"4credit/controllers"
 	"github.com/astaxie/beego"
 )
 

@@ -1,15 +1,13 @@
 package controllers
 
 import (
-	"github.com/liwd/blog/models"
-	
-	"github.com/liwd/blog/util"
-
+	"4credit/models"
+	"4credit/util"
 	"strings"
 	
 )
 
-type AdminController struct {
+type AdminController struct {//登录controller
 	baseController
 }
 

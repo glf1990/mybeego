@@ -1,10 +1,10 @@
 package main
 
 import (
-	_ "github.com/liwd/blog/routers"
+	_ "4credit/routers"
 	"github.com/astaxie/beego"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/liwd/blog/models"
+	"4credit/models"
 )
 
 

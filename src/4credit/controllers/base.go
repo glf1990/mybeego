@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/Echosong/beego_blog/models"
+	"4credit/models"//??????
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"strings"
@@ -15,14 +15,14 @@ type baseController struct {
 }
 
 func (p *baseController) Prepare() {
-	controllerName, actionName := p.GetControllerAndAction()
-	p.controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])
+	controllerName, actionName := p.GetControllerAndAction()//return c.controllerName, c.actionName
+
+	p.controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])//???
 	p.actionName = strings.ToLower(actionName)
-	p.o = orm.NewOrm()
+	p.o = orm.NewOrm()//????
 	if strings.ToLower(p.controllerName) == "admin" && strings.ToLower(p.actionName) != "login" {
 		if p.GetSession("user") == nil {
 			p.History("未登录", "/admin/login")
-			//p.Ctx.WriteString(p.controllerName +"==="+ p.actionName)
 		}
 	}
 
@@ -41,7 +41,7 @@ func (p *baseController) Prepare() {
 
 }
 
-func (p *baseController) History(msg string, url string) {
+func (p *baseController) History(msg string, url string) {//登录状态提醒
 	if url == "" {
 		p.Ctx.WriteString("<script>alert('" + msg + "');window.history.go(-1);</script>")
 		p.StopRun()
