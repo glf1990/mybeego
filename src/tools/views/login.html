@@ -5,6 +5,17 @@
     <title>credit login</title>
     <link rel="stylesheet" href="/static/layui/css/layui.css">
     <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <style>
+
+        .main {
+            margin: 0 auto;
+            width: 400px;
+            border: 1px solid;
+            border-color: #eeeeee;
+            border-radius: 5px;
+            margin-top: 100px;
+        } <!-- 这个部分用于定义主体 部分的大小-->
+    </style>
 </head>
 <body>
 <div class="main layui-clear">
@@ -45,6 +56,9 @@
                                     lay-submit=""
                                     lay-filter="sub">立即登录
                             </button>
+                            <form action="/register" method="post" >
+                                <button>注册</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -53,7 +67,7 @@
     </form>
     <h2>register</h2>
     <form action="/register" method="post">
-        id:<input name="userid"/>
+        username:<input name="username"/>
         password:<input name="password" type="password">
         <input type="submit">
     </form>
